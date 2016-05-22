@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "**/*.{h,m,swift}"
+  s.source_files  = "KeyboardObserver/**/*.{h,m,swift}"
   #s.exclude_files = "Classes/Exclude"
   s.pod_target_xcconfig = { 'OTHER_SWIFT_FLAGS' => '-DCOCOAPODS' }
   #s.compiler_flags = 'ONE_TARGET=1'
