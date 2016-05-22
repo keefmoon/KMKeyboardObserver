@@ -31,7 +31,6 @@
 		2F0AFB4A1CF0FEF10026F520 /* KeyboardObserverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserverTests.swift; sourceTree = "<group>"; };
 		2F0AFB4C1CF0FEF10026F520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F0AFB551CF0FF8D0026F520 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardObserver.swift; path = Swift/KeyboardObserver.swift; sourceTree = "<group>"; };
-		2F0AFB591CF24F690026F520 /* KMKeyboardObserver.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = KMKeyboardObserver.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +55,6 @@
 		2F0AFB311CF0FEF00026F520 = {
 			isa = PBXGroup;
 			children = (
-				2F0AFB591CF24F690026F520 /* KMKeyboardObserver.podspec */,
 				2F0AFB3D1CF0FEF00026F520 /* KeyboardObserver */,
 				2F0AFB491CF0FEF10026F520 /* KeyboardObserverTests */,
 				2F0AFB3C1CF0FEF00026F520 /* Products */,
