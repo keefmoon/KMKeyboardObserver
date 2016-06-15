@@ -79,7 +79,7 @@ public class KeyboardObserver: NSObject {
     
     
     // Delegate to be notified
-    weak var delegate: KeyboardObserverDelegate?
+    public weak var delegate: KeyboardObserverDelegate?
     
     /// Indicates if the Keyboard observer is currently observing keyboard changes
     private var isObserving = false
@@ -187,7 +187,7 @@ public class KeyboardObserver: NSObject {
 
 // MARK: - KeyboardObserverDelegate
 
-protocol KeyboardObserverDelegate: class {
+public protocol KeyboardObserverDelegate: class {
     
     /**
      Keyboard will show
