@@ -29,11 +29,11 @@ public enum KeyboardAppearanceEvent {
  */
 public struct KeyboardMetrics {
     
-    let beginFrame: CGRect
-    let endFrame: CGRect
-    let animationDuration: NSTimeInterval
-    let animationCurve: UIViewAnimationCurve
-    let animationOptionCurve: UIViewAnimationOptions
+    public let beginFrame: CGRect
+    public let endFrame: CGRect
+    public let animationDuration: NSTimeInterval
+    public let animationCurve: UIViewAnimationCurve
+    public let animationOptionCurve: UIViewAnimationOptions
     
     init(beginFrame: CGRect, endFrame: CGRect, animationDuration: NSTimeInterval, animationCurve: UIViewAnimationCurve) {
         
