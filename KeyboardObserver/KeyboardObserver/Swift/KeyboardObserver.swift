@@ -11,16 +11,16 @@ import UIKit
 
 public enum AppearanceEventLifecycle {
     
-    case Will
-    case Did
+    case will
+    case did
 }
 
 
 public enum KeyboardAppearanceEvent {
     
-    case Show(AppearanceEventLifecycle)
-    case Hide(AppearanceEventLifecycle)
-    case Change(AppearanceEventLifecycle)
+    case show(AppearanceEventLifecycle)
+    case hide(AppearanceEventLifecycle)
+    case change(AppearanceEventLifecycle)
 }
 
 
@@ -31,11 +31,11 @@ public struct KeyboardMetrics {
     
     public let beginFrame: CGRect
     public let endFrame: CGRect
-    public let animationDuration: NSTimeInterval
+    public let animationDuration: TimeInterval
     public let animationCurve: UIViewAnimationCurve
     public let animationOptionCurve: UIViewAnimationOptions
     
-    init(beginFrame: CGRect, endFrame: CGRect, animationDuration: NSTimeInterval, animationCurve: UIViewAnimationCurve) {
+    init(beginFrame: CGRect, endFrame: CGRect, animationDuration: TimeInterval, animationCurve: UIViewAnimationCurve) {
         
         self.beginFrame = beginFrame
         self.endFrame = endFrame
@@ -55,10 +55,10 @@ public struct KeyboardMetrics {
             let animationDurationNumber = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber,
             let animationCurveNumber = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber {
                 
-                let beginFrame = beginFrameValue.CGRectValue()
-                let endFrame = endFrameValue.CGRectValue()
-                let animationDuration = NSTimeInterval(animationDurationNumber.doubleValue)
-                let animationCurve = UIViewAnimationCurve(rawValue: animationCurveNumber.integerValue)!
+                let beginFrame = beginFrameValue.cgRectValue()
+                let endFrame = endFrameValue.cgRectValue()
+                let animationDuration = TimeInterval(animationDurationNumber.doubleValue)
+                let animationCurve = UIViewAnimationCurve(rawValue: animationCurveNumber.intValue)!
                 
                 self = KeyboardMetrics(beginFrame: beginFrame, endFrame: endFrame, animationDuration: animationDuration, animationCurve: animationCurve)
                 
@@ -108,12 +108,12 @@ public class KeyboardObserver: NSObject {
     */
     private func startObservingKeyboard() {
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDidHide), name: UIKeyboardDidHideNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: UIKeyboardWillChangeFrameNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDidChangeFrame), name: UIKeyboardDidChangeFrameNotification, object: nil)
+        NotificationCenter.default().addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default().addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default().addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default().addObserver(self, selector: #selector(keyboardDidHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+        NotificationCenter.default().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default().addObserver(self, selector: #selector(keyboardDidChangeFrame), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
         
         isObserving = true
     }
@@ -124,61 +124,61 @@ public class KeyboardObserver: NSObject {
      */
     private func stopObservingKeyboard() {
         
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillChangeFrameNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidChangeFrameNotification, object: nil)
+        NotificationCenter.default().removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default().removeObserver(self, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default().removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default().removeObserver(self, name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+        NotificationCenter.default().removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default().removeObserver(self, name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
         
         isObserving = false
     }
     
     
-    func keyboardWillShow(notification: NSNotification) {
+    func keyboardWillShow(_ notification: Notification) {
         
-        if let userInfo = notification.userInfo, let metrics = KeyboardMetrics(userInfo: userInfo) {
-            delegate?.keyboardObserver(self, hasReceivedEvent: .Show(.Will), withMetrics: metrics)
+        if let userInfo = (notification as NSNotification).userInfo, let metrics = KeyboardMetrics(userInfo: userInfo) {
+            delegate?.keyboardObserver(self, hasReceivedEvent: .show(.will), withMetrics: metrics)
         }
     }
     
     
-    func keyboardDidShow(notification: NSNotification) {
+    func keyboardDidShow(_ notification: Notification) {
         
-        if let userInfo = notification.userInfo, let metrics = KeyboardMetrics(userInfo: userInfo) {
-            delegate?.keyboardObserver(self, hasReceivedEvent: .Show(.Did), withMetrics: metrics)
+        if let userInfo = (notification as NSNotification).userInfo, let metrics = KeyboardMetrics(userInfo: userInfo) {
+            delegate?.keyboardObserver(self, hasReceivedEvent: .show(.did), withMetrics: metrics)
         }
     }
     
     
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(_ notification: Notification) {
         
-        if let userInfo = notification.userInfo, let metrics = KeyboardMetrics(userInfo: userInfo) {
-            delegate?.keyboardObserver(self, hasReceivedEvent: .Hide(.Will), withMetrics: metrics)
+        if let userInfo = (notification as NSNotification).userInfo, let metrics = KeyboardMetrics(userInfo: userInfo) {
+            delegate?.keyboardObserver(self, hasReceivedEvent: .hide(.will), withMetrics: metrics)
         }
     }
     
     
-    func keyboardDidHide(notification: NSNotification) {
+    func keyboardDidHide(_ notification: Notification) {
         
-        if let userInfo = notification.userInfo, let metrics = KeyboardMetrics(userInfo: userInfo) {
-            delegate?.keyboardObserver(self, hasReceivedEvent: .Hide(.Did), withMetrics: metrics)
+        if let userInfo = (notification as NSNotification).userInfo, let metrics = KeyboardMetrics(userInfo: userInfo) {
+            delegate?.keyboardObserver(self, hasReceivedEvent: .hide(.did), withMetrics: metrics)
         }
     }
     
     
-    func keyboardWillChangeFrame(notification: NSNotification) {
+    func keyboardWillChangeFrame(_ notification: Notification) {
         
-        if let userInfo = notification.userInfo, let metrics = KeyboardMetrics(userInfo: userInfo) {
-            delegate?.keyboardObserver(self, hasReceivedEvent: .Change(.Will), withMetrics: metrics)
+        if let userInfo = (notification as NSNotification).userInfo, let metrics = KeyboardMetrics(userInfo: userInfo) {
+            delegate?.keyboardObserver(self, hasReceivedEvent: .change(.will), withMetrics: metrics)
         }
     }
     
     
-    func keyboardDidChangeFrame(notification: NSNotification) {
+    func keyboardDidChangeFrame(_ notification: Notification) {
         
-        if let userInfo = notification.userInfo, let metrics = KeyboardMetrics(userInfo: userInfo) {
-            delegate?.keyboardObserver(self, hasReceivedEvent: .Change(.Did), withMetrics: metrics)
+        if let userInfo = (notification as NSNotification).userInfo, let metrics = KeyboardMetrics(userInfo: userInfo) {
+            delegate?.keyboardObserver(self, hasReceivedEvent: .change(.did), withMetrics: metrics)
         }
     }
     
@@ -196,6 +196,6 @@ public protocol KeyboardObserverDelegate: class {
      - parameter hasReceivedEvent:  Event that was observed
      - parameter keyboardMetrics:   Keyboard Metrics struct
      */
-    func keyboardObserver(keyboardObserver: KeyboardObserver, hasReceivedEvent event: KeyboardAppearanceEvent, withMetrics keyboardMetrics: KeyboardMetrics)
+    func keyboardObserver(_ keyboardObserver: KeyboardObserver, hasReceivedEvent event: KeyboardAppearanceEvent, withMetrics keyboardMetrics: KeyboardMetrics)
     
 }
