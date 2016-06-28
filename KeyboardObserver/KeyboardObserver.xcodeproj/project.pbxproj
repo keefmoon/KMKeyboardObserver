@@ -10,7 +10,8 @@
 		2F0AFB3F1CF0FEF00026F520 /* KeyboardObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F0AFB3E1CF0FEF00026F520 /* KeyboardObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F0AFB461CF0FEF00026F520 /* KeyboardObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0AFB3B1CF0FEF00026F520 /* KeyboardObserver.framework */; };
 		2F0AFB4B1CF0FEF10026F520 /* KeyboardObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0AFB4A1CF0FEF10026F520 /* KeyboardObserverTests.swift */; };
-		2F0AFB561CF0FF8D0026F520 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0AFB551CF0FF8D0026F520 /* KeyboardObserver.swift */; };
+		2F56A1611D2212F4005BC7E2 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F56A1601D2212F4005BC7E2 /* KeyboardObserver.swift */; };
+		2F56A1631D22130D005BC7E2 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F56A1621D22130D005BC7E2 /* Package.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +31,8 @@
 		2F0AFB451CF0FEF00026F520 /* KeyboardObserverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyboardObserverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0AFB4A1CF0FEF10026F520 /* KeyboardObserverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserverTests.swift; sourceTree = "<group>"; };
 		2F0AFB4C1CF0FEF10026F520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F0AFB551CF0FF8D0026F520 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardObserver.swift; path = Swift/KeyboardObserver.swift; sourceTree = "<group>"; };
+		2F56A1601D2212F4005BC7E2 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardObserver.swift; path = Sources/KeyboardObserver.swift; sourceTree = "<group>"; };
+		2F56A1621D22130D005BC7E2 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = KeyboardObserver/Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		2F0AFB311CF0FEF00026F520 = {
 			isa = PBXGroup;
 			children = (
+				2F56A1621D22130D005BC7E2 /* Package.swift */,
 				2F0AFB3D1CF0FEF00026F520 /* KeyboardObserver */,
 				2F0AFB491CF0FEF10026F520 /* KeyboardObserverTests */,
 				2F0AFB3C1CF0FEF00026F520 /* Products */,
@@ -73,7 +76,7 @@
 		2F0AFB3D1CF0FEF00026F520 /* KeyboardObserver */ = {
 			isa = PBXGroup;
 			children = (
-				2F0AFB551CF0FF8D0026F520 /* KeyboardObserver.swift */,
+				2F56A1601D2212F4005BC7E2 /* KeyboardObserver.swift */,
 				2F0AFB3E1CF0FEF00026F520 /* KeyboardObserver.h */,
 				2F0AFB401CF0FEF00026F520 /* Info.plist */,
 			);
@@ -199,7 +202,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F0AFB561CF0FF8D0026F520 /* KeyboardObserver.swift in Sources */,
+				2F56A1631D22130D005BC7E2 /* Package.swift in Sources */,
+				2F56A1611D2212F4005BC7E2 /* KeyboardObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
