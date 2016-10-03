@@ -48,15 +48,15 @@ public struct KeyboardMetrics {
     }
     
     
-    init?(userInfo: [NSObject: AnyObject]) {
+    init?(userInfo: [AnyHashable: Any]) {
         
         if  let beginFrameValue = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue,
             let endFrameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue,
             let animationDurationNumber = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber,
             let animationCurveNumber = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber {
                 
-                let beginFrame = beginFrameValue.cgRectValue()
-                let endFrame = endFrameValue.cgRectValue()
+                let beginFrame = beginFrameValue.cgRectValue
+                let endFrame = endFrameValue.cgRectValue
                 let animationDuration = TimeInterval(animationDurationNumber.doubleValue)
                 let animationCurve = UIViewAnimationCurve(rawValue: animationCurveNumber.intValue)!
                 
@@ -108,12 +108,12 @@ public class KeyboardObserver: NSObject {
     */
     private func startObservingKeyboard() {
         
-        NotificationCenter.default().addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default().addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default().addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        NotificationCenter.default().addObserver(self, selector: #selector(keyboardDidHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
-        NotificationCenter.default().addObserver(self, selector: #selector(keyboardWillChangeFrame), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-        NotificationCenter.default().addObserver(self, selector: #selector(keyboardDidChangeFrame), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChangeFrame), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
         
         isObserving = true
     }
@@ -124,12 +124,12 @@ public class KeyboardObserver: NSObject {
      */
     private func stopObservingKeyboard() {
         
-        NotificationCenter.default().removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default().removeObserver(self, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default().removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        NotificationCenter.default().removeObserver(self, name: NSNotification.Name.UIKeyboardDidHide, object: nil)
-        NotificationCenter.default().removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-        NotificationCenter.default().removeObserver(self, name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
         
         isObserving = false
     }
