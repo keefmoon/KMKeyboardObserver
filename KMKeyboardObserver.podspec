@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "git@github.com:keefmoon/KMKeyboardObserver.git", :tag => '1.7' }
+  s.source       = { :git => "https://github.com/keefmoon/KMKeyboardObserver.git", :tag => '1.7' }
   s.module_name = "KeyboardObserver"
 
 
