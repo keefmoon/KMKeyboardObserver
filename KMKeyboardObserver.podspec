@@ -15,9 +15,10 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "KMKeyboardObserver"
-  s.version      = "1.6.0"
-  s.summary      = "A simple class to observer keyboard frame changes, and report to a delegate"
+  s.name          = "KMKeyboardObserver"
+  s.version       = "1.7"
+  s.swift_version = "4.2"
+  s.summary       = "A simple class to observer keyboard frame changes, and report to a delegate"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +26,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-  A collection of common code that helps with UI, persistence and networking
+  A simple class to observer keyboard frame changes, and report to a delegate
                    DESC
 
   s.homepage     = "https://github.com/keefmoon/KMKeyboardObserver"
@@ -79,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "git@github.com:keefmoon/KMKeyboardObserver.git", :tag => 'current' }
+  s.source       = { :git => "git@github.com:keefmoon/KMKeyboardObserver.git", :tag => '1.7' }
   s.module_name = "KeyboardObserver"
 
 

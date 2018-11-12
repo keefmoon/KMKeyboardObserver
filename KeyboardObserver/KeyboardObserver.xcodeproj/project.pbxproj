@@ -10,7 +10,7 @@
 		2F0AFB3F1CF0FEF00026F520 /* KeyboardObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F0AFB3E1CF0FEF00026F520 /* KeyboardObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F0AFB461CF0FEF00026F520 /* KeyboardObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0AFB3B1CF0FEF00026F520 /* KeyboardObserver.framework */; };
 		2F0AFB4B1CF0FEF10026F520 /* KeyboardObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0AFB4A1CF0FEF10026F520 /* KeyboardObserverTests.swift */; };
-		2F56A1611D2212F4005BC7E2 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F56A1601D2212F4005BC7E2 /* KeyboardObserver.swift */; };
+		2F13B9AF2198FB1000639591 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13B9AE2198FB1000639591 /* KeyboardObserver.swift */; };
 		2F6429D51FFDA8860081AA9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6429D41FFDA8860081AA9F /* AppDelegate.swift */; };
 		2F6429D71FFDA8860081AA9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6429D61FFDA8860081AA9F /* ViewController.swift */; };
 		2F6429DA1FFDA8860081AA9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F6429D81FFDA8860081AA9F /* Main.storyboard */; };
@@ -58,7 +58,7 @@
 		2F0AFB451CF0FEF00026F520 /* KeyboardObserverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyboardObserverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0AFB4A1CF0FEF10026F520 /* KeyboardObserverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserverTests.swift; sourceTree = "<group>"; };
 		2F0AFB4C1CF0FEF10026F520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F56A1601D2212F4005BC7E2 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardObserver.swift; path = Sources/KeyboardObserver.swift; sourceTree = "<group>"; };
+		2F13B9AE2198FB1000639591 /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		2F6429D21FFDA8860081AA9F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6429D41FFDA8860081AA9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F6429D61FFDA8860081AA9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		2F0AFB3D1CF0FEF00026F520 /* KeyboardObserver */ = {
 			isa = PBXGroup;
 			children = (
-				2F56A1601D2212F4005BC7E2 /* KeyboardObserver.swift */,
+				2F13B9AD2198FB1000639591 /* Sources */,
 				2F0AFB3E1CF0FEF00026F520 /* KeyboardObserver.h */,
 				2F0AFB401CF0FEF00026F520 /* Info.plist */,
 			);
@@ -132,6 +132,14 @@
 				2F0AFB4C1CF0FEF10026F520 /* Info.plist */,
 			);
 			path = KeyboardObserverTests;
+			sourceTree = "<group>";
+		};
+		2F13B9AD2198FB1000639591 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2F13B9AE2198FB1000639591 /* KeyboardObserver.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		2F6429D31FFDA8860081AA9F /* Example */ = {
@@ -238,6 +246,7 @@
 					2F6429D11FFDA8860081AA9F = {
 						CreatedOnToolsVersion = 9.1;
 						DevelopmentTeam = YAXJZJ267E;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -294,7 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F56A1611D2212F4005BC7E2 /* KeyboardObserver.swift in Sources */,
+				2F13B9AF2198FB1000639591 /* KeyboardObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,7 +563,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keefmoon.keyboard-observer.Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -586,7 +595,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keefmoon.keyboard-observer.Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
