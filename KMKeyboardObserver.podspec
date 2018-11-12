@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-  A simple class to observer keyboard frame changes, and report to a delegate
+  A nice Swifty wrapper around keyboard frame change notifications.
                    DESC
 
   s.homepage     = "https://github.com/keefmoon/KMKeyboardObserver"
